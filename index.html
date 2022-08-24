@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./rock-paper-scissors.js" defer></script>
 </head>
 <body>
-    <script src="./rock-paper-scissors.js"></script>
+    <div class="hero">
+        <div class="title">Rock Paper Scissors</div>
+        <div class="instructions">Choose one of the following options:</div>
+    </div>
+    <div class="buttons">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+    </div>
+    <div class="score">
+        <div class="score-title">Score</div>
+        <div class="score-trackers">
+            <div class="tracker">
+                <div class="player-title">Player:</div>
+                <div class="player-score">0</div>
+            </div>
+            <div class="tracker">
+                <div class="computer-title">Computer:</div>
+                <div class="computer-score">0</div>
+            </div>
+        </div>
+    </div>
+    <div class="announcement">
+        <div class="winner"></div>
+    </div>
 </body>
 </html>
