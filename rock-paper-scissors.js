@@ -56,7 +56,7 @@ function connectOptionButtons() {
 }
 
 function chooseOption(e) {
-    const playerSelection = capitalise(this.classList.value);
+    const playerSelection = capitalise(this.id);
     const computerSelection = getComputerChoice();
 
     console.log(playerSelection, computerSelection);
@@ -72,29 +72,36 @@ function updateScore(player, computer) {
     player_score.textContent = parseInt(player_score.textContent) + player;
     computer_score.textContent = parseInt(computer_score.textContent) + computer;
 
-    if (player_score.textContent === "5") {
+    if (player_score.textContent === "1") {
         announceWinner("PLAYER");
-    } else if (computer_score.textContent === "5") {
+    } else if (computer_score.textContent === "1") {
         announceWinner("COMPUTER");
     }
 }
 
 function announceWinner(winner) {
-    const announcement = document.querySelector('.winner');
-    announcement.textContent = `THE ${winner} WINS THE GAME!!!`;
+    const container = document.createElement('div');
+    container.classList.add('announcement')
+
+    const message = document.createElement('div')
+    message.classList.add('winner')
+    message.textContent = `THE ${winner} WINS THE GAME!!!`;
+    container.appendChild(message)
     
     buttons.forEach(button => button.removeEventListener('click', chooseOption));
 
-    addResetButton();
+    addResetButton(container);
+
+    const body = document.querySelector('body')
+    body.appendChild(container)
 }
 
-function addResetButton() {
-    const container = document.querySelector('.announcement');
+function addResetButton(parent) {
     const reset_btn = document.createElement('button');
     reset_btn.classList.add("reset-btn");
     reset_btn.textContent = "Reset game";
 
-    container.appendChild(reset_btn);
+    parent.appendChild(reset_btn);
 
     reset_btn.addEventListener('click', resetGame);
 }
