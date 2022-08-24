@@ -72,9 +72,9 @@ function updateScore(player, computer) {
     player_score.textContent = parseInt(player_score.textContent) + player;
     computer_score.textContent = parseInt(computer_score.textContent) + computer;
 
-    if (player_score.textContent === "1") {
+    if (player_score.textContent === "5") {
         announceWinner("PLAYER");
-    } else if (computer_score.textContent === "1") {
+    } else if (computer_score.textContent === "5") {
         announceWinner("COMPUTER");
     }
 }
@@ -107,11 +107,8 @@ function addResetButton(parent) {
 }
 
 function resetGame() {
-    const announcement = document.querySelector('.winner');
-    announcement.textContent = "";
-
-    const reset_btn = document.querySelector(".reset-btn");
-    reset_btn.remove()
+    const announcement = document.querySelector(".announcement");
+    announcement.remove()
 
     const player_score = document.querySelector('.player-score');
     const computer_score = document.querySelector('.computer-score');
